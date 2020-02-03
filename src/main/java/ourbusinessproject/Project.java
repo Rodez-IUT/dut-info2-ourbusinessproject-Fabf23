@@ -14,7 +14,7 @@ public class Project {
     @GeneratedValue
     private long id;
 
-    @NotNull @NotBlank // @NotNull + @NotBlank = @NotEmpty
+    @NotNull @NotBlank //@NotNull + @NotBlank = @NotEmpty
     private String title;
     private String description;
 
