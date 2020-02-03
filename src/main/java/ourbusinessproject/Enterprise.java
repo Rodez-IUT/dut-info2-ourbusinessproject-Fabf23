@@ -2,20 +2,27 @@ package ourbusinessproject;
 
 import org.hibernate.validator.constraints.Length;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+@Entity
 public class Enterprise {
-    @NotNull @NotBlank
+    @Id
+    @GeneratedValue
+    private long id;
+
+    @NotBlank
     private String name;
-    @NotNull @NotBlank @Length(min = 10)
+    @NotBlank @Length(min = 10)
     private String description;
-    @NotNull @NotBlank
+    @NotBlank
     private String contactName;
-    @NotNull @NotBlank @Email
+    @NotBlank @Email
     private String contactEmail;
 
 
