@@ -23,6 +23,14 @@ public class Project {
     @NotNull @ManyToOne
     private Enterprise entreprise;
 
+    public Enterprise getEnterprise() {
+        return entreprise;
+    }
+
+    public void setEnterprise(Enterprise entreprise) {
+        this.entreprise = entreprise;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -32,7 +40,7 @@ public class Project {
     }
 
     public String getDescription() {
-        return description;
+        return  description;
     }
 
     public void setDescription(String description) {
