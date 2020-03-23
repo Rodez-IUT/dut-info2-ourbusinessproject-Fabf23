@@ -17,7 +17,6 @@ public class ProjectTest {
 
     private Validator validator;
     private Project project;
-
     @MockBean
     private Enterprise enterprise;
 

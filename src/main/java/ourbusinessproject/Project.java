@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.UniqueElements;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 @Entity
@@ -19,7 +20,7 @@ public class Project {
     @NotNull @NotBlank //@NotNull + @NotBlank = @NotEmpty
     private String title;
     private String description;
-    @NotNull
+    @NotNull @ManyToOne
     private Enterprise entreprise;
 
     public String getTitle() {
