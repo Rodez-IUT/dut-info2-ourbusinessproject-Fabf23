@@ -19,6 +19,8 @@ public class Project {
     @NotNull @NotBlank //@NotNull + @NotBlank = @NotEmpty
     private String title;
     private String description;
+    @NotNull
+    private Enterprise entreprise;
 
     public String getTitle() {
         return title;
