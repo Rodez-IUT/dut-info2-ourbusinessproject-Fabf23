@@ -12,6 +12,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 @Entity
 public class Enterprise {
+
+
     @Id
     @GeneratedValue
     private long id;
@@ -27,6 +29,13 @@ public class Enterprise {
 
 
     public Enterprise() {
+    }
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
     public String getName() {
         return name;
@@ -57,7 +66,7 @@ public class Enterprise {
     }
 
     public void setContactEmail(String contactEmail) {
-            this.contactEmail = contactEmail;
+        this.contactEmail = contactEmail;
     }
 
 
