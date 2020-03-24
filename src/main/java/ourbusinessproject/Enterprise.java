@@ -25,6 +25,8 @@ public class Enterprise {
     private String contactName;
     @NotEmpty @Email
     private String contactEmail;
+    @OneToMany(mappedBy = "entreprise")
+    private Collection<Project> projects;
 
     public Enterprise() {
     }
@@ -68,5 +70,8 @@ public class Enterprise {
     }
     public Long getId() {
         return id;
+    }
+    public Collection<Project> getProjects() {
+        return projects;
     }
 }
