@@ -1,13 +1,11 @@
 package ourbusinessproject;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
-import java.util.List;
 
-@Component
+@Service
 public class EnterpriseProjectService {
 
     @PersistenceContext
@@ -21,19 +19,21 @@ public class EnterpriseProjectService {
         this.entityManager = entityManager;
     }
 
-    public Project findProjectById(Long id) {
-        return this.entityManager.find(Project.class, id);
-    }
-
-
-
-    public Enterprise findEnterpriseById(Long id) {
-        return this.entityManager.find(Enterprise.class, id);
-    }
-
-    public void save(Object objet){
-        entityManager.persist(objet);
+    public void save(Project project) {
+        entityManager.persist(project);
         entityManager.flush();
     }
 
+    public void save(Enterprise enterprise) {
+        entityManager.persist(enterprise);
+        entityManager.flush();
+    }
+
+    public Project findProjectById(Long anId) {
+        return entityManager.find(Project.class, anId);
+    }
+
+    public Enterprise findEnterpriseById(Long anId) {
+        return entityManager.find(Enterprise.class, anId);
+    }
 }
