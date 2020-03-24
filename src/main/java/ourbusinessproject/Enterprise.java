@@ -6,9 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import java.util.Collection;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -20,13 +18,13 @@ public class Enterprise {
     @GeneratedValue
     private Long id;
 
-    @NotBlank
+    @NotEmpty
     private String name;
-    @NotBlank @Length(min = 10)
+    @Size(min = 10)
     private String description;
-    @NotBlank
+    @NotEmpty
     private String contactName;
-    @NotBlank @Email
+    @NotEmpty @Email
     private String contactEmail;
     @OneToMany(mappedBy = "entreprise")
     private Collection<Project> projects;
