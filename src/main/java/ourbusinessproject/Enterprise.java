@@ -1,14 +1,11 @@
 package ourbusinessproject;
 
-import org.hibernate.validator.constraints.Length;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+
 @Entity
 public class Enterprise {
 
@@ -25,10 +22,11 @@ public class Enterprise {
     private String contactName;
     @NotEmpty @Email
     private String contactEmail;
-    @OneToMany(mappedBy = "entreprise")
-    private Collection<Project> projects;
+    @OneToMany(cascade = CascadeType.ALL)
+    public List<Project> projects;
 
-    public Enterprise() {
+    public Enterprise(){
+        this.projects = new ArrayList<>();
     }
     public long getId() {
         return id;
@@ -73,5 +71,8 @@ public class Enterprise {
     }
     public Collection<Project> getProjects() {
         return projects;
+    }
+    public void addProject(Project projet){
+        this.projects.add(projet);
     }
 }

@@ -2,10 +2,7 @@ package ourbusinessproject;
 
 import org.hibernate.validator.constraints.UniqueElements;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 @Entity
@@ -20,16 +17,24 @@ public class Project {
     @NotNull @NotBlank //@NotNull + @NotBlank = @NotEmpty
     private String title;
     private String description;
-    @NotNull @ManyToOne
+    @NotNull @ManyToOne(cascade = CascadeType.ALL)
     private Enterprise entreprise;
 
+    public Project() { }
 
-    public Enterprise getEnterprise() {
-        return entreprise;
+    public Project(Enterprise enterprise) {
+        this.entreprise = enterprise;
+        this.entreprise.addProject(this);
+
     }
 
-    public void setEnterprise(Enterprise entreprise) {
-        this.entreprise = entreprise;
+    public void setEnterprise(Enterprise enterprise) {
+        this.entreprise = enterprise;
+        this.entreprise.addProject(this);
+    }
+
+    public Enterprise getEnterprise() {
+        return this.entreprise;
     }
     public String getTitle() {
         return title;
