@@ -7,9 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.*;
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 @Entity
 public class Enterprise {
 
@@ -26,8 +25,6 @@ public class Enterprise {
     private String contactName;
     @NotEmpty @Email
     private String contactEmail;
-    @OneToMany(mappedBy = "entreprise")
-    private Collection<Project> projects;
 
     public Enterprise() {
     }
@@ -72,9 +69,4 @@ public class Enterprise {
     public Long getId() {
         return id;
     }
-    public Collection<Project> getProjects() {
-        return projects;
-    }
-
-
 }

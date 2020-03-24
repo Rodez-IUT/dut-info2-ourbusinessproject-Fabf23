@@ -20,16 +20,6 @@ public class Project {
     @NotNull @NotBlank //@NotNull + @NotBlank = @NotEmpty
     private String title;
     private String description;
-    @NotNull @ManyToOne
-    private Enterprise entreprise;
-
-    public Enterprise getEnterprise() {
-        return entreprise;
-    }
-
-    public void setEnterprise(Enterprise entreprise) {
-        this.entreprise = entreprise;
-    }
 
     public String getTitle() {
         return title;
