@@ -24,13 +24,17 @@ public class Project {
 
     public Project(Enterprise enterprise) {
         this.entreprise = enterprise;
-        this.entreprise.addProject(this);
+        if (enterprise != null) {
+            this.entreprise.addProject(this);
+        }
 
     }
 
     public void setEnterprise(Enterprise enterprise) {
         this.entreprise = enterprise;
-        this.entreprise.addProject(this);
+        if (entreprise != null) {
+            this.entreprise.addProject(this);
+        }
     }
 
     public Enterprise getEnterprise() {

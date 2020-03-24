@@ -70,7 +70,7 @@ public class Enterprise {
         return id;
     }
     public Collection<Project> getProjects() {
-        return projects;
+        return projects.isEmpty() ? null : projects;
     }
     public void addProject(Project projet){
         this.projects.add(projet);
