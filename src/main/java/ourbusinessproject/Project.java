@@ -4,6 +4,7 @@ import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 @Entity
 public class Project {
@@ -21,6 +22,12 @@ public class Project {
     private Enterprise entreprise;
 
     public Project() { }
+
+    public Project(@NotEmpty String title, @NotNull String description, Enterprise enterprise) {
+        this.title = title;
+        this.description = description;
+        this.entreprise = enterprise;
+    }
 
     public Project(Enterprise enterprise) {
         this.entreprise = enterprise;
