@@ -20,6 +20,10 @@ public class InitializationService {
     @Transactional
     public void initProjects() {
 
+        /* Réponse 2.4.2 :
+         * Le @Transactionnal au dessus de cette méthode signifie qu'elle sera exécutée sous forme transaction
+         * Donc si une erreur se produit, un rollback automatique sera effectué et la base gardera un état stable
+         */
         enterprise1 = new Enterprise();
         enterprise1.setName("Enterprise 1");
         enterprise1.setDescription("Enterprise 1 description");
