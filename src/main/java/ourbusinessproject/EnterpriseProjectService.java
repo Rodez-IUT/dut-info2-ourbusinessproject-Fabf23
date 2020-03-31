@@ -40,7 +40,7 @@ public class EnterpriseProjectService {
     }
 
     public List<Project> findAllProjects() {
-        String requete = "SELECT p FROM Project p ORDER BY p.title";
+        String requete = "SELECT p FROM Project p JOIN FETCH p.entreprise e  ORDER BY p.title";
         TypedQuery<Project> queryProject = entityManager.createQuery(requete, Project.class);
         return queryProject.getResultList();
     }
