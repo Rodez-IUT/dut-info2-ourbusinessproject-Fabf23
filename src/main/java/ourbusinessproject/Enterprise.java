@@ -1,5 +1,7 @@
 package ourbusinessproject;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.util.ArrayList;
@@ -23,6 +25,7 @@ public class Enterprise {
     @NotEmpty @Email
     private String contactEmail;
     @OneToMany(cascade = CascadeType.ALL)
+    @JsonIgnore
     public List<Project> projects;
 
     public Enterprise(){
@@ -69,6 +72,7 @@ public class Enterprise {
     public Long getId() {
         return id;
     }
+
     public Collection<Project> getProjects() {
         return projects.isEmpty() ? null : projects;
     }
